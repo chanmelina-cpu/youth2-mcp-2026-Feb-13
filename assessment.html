@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouthOK - Self-Assessment</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="self-assessment.css">
 </head>
 <body>
     <header>
@@ -23,16 +24,20 @@
     <main>
         <section id="assessment" class="section">
             <div class="container">
-                <h2>Self-Assessment</h2>
-                <p>Let's check in. Please select the option that best describes how you've felt over the past week.</p>
-                
+                <h2>Wellbeing Self-Assessment</h2>
+                <p class="assessment-description">This quick assessment will help us understand your current wellbeing. Please answer the following questions based on your feelings over the past week.</p>
+
                 <div class="progress-container">
-                    <div class="progress-bar"></div>
+                    <div id="progress-bar" class="progress-bar"></div>
                 </div>
 
-                <div id="chat-container" class="card">
-                    <div id="chat-log"></div>
-                    <div id="chat-options"></div>
+                <form id="self-assessment-form">
+                    <!-- Questions will be dynamically inserted here by assessment.js -->
+                    <button type="submit" class="button">See Your Results</button>
+                </form>
+
+                <div id="results-display" class="results-container" style="display: none;">
+                    <!-- Results will be injected here by JavaScript -->
                 </div>
             </div>
         </section>
@@ -43,6 +48,7 @@
             <p>&copy; 2026 YouthOK. All rights reserved.</p>
         </div>
     </footer>
+
     <script src="assessment.js"></script>
 </body>
 </html>
