@@ -1,0 +1,178 @@
+main {
+    padding-block-start: 80px; /* To account for the fixed header */
+}
+
+#mood-tracker,
+#mood-history,
+#find-a-coach {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+#mood-tracker h2,
+#mood-history h2,
+#find-a-coach h2 {
+    font-size: 2.5rem;
+    margin-block-end: 2rem;
+    color: var(--primary-color);
+}
+
+.mood-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-block-end: 2rem;
+}
+
+/* NEW STYLES FOR MOOD SELECTORS */
+.mood {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    min-width: 80px;
+    border: 1px solid transparent;
+}
+
+.mood:hover {
+    background-color: oklch(95% 0.01 285.58);
+    transform: translateY(-3px);
+}
+
+.mood .mood-label {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Color circle instead of icon */
+.mood::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.mood:hover::before {
+    transform: scale(1.1);
+}
+
+/* Mood Colors */
+.mood[data-mood="Happy"]::before { background-color: #FFD700; } /* Gold */
+.mood[data-mood="Sad"]::before { background-color: #4682B4; } /* SteelBlue */
+.mood[data-mood="Anxious"]::before { background-color: #FFA500; } /* Orange */
+.mood[data-mood="Excited"]::before { background-color: #FF6347; } /* Tomato */
+.mood[data-mood="Calm"]::before { background-color: #87CEEB; } /* SkyBlue */
+.mood[data-mood="Angry"]::before { background-color: #DC143C; } /* Crimson */
+
+
+#mood-chart {
+    max-width: 800px;
+    margin-inline: auto;
+    margin-block: 2rem;
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-elevation-medium);
+}
+
+#find-a-coach {
+    background-color: var(--accent-color);
+}
+
+.coach-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.coach-card {
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-elevation-medium);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coach-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-elevation-high);
+}
+
+.coach-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-block-end: 1.5rem;
+    border: 3px solid var(--accent-color);
+}
+
+.coach-card h3 {
+    font-size: 1.4rem;
+    margin-block-end: 0.5rem;
+    color: var(--primary-color);
+}
+
+.coach-card p {
+    color: oklch(52.2% 0.03 285.58);
+    margin-block-end: 1.5rem;
+    min-height: 40px; /* To align buttons */
+}
+
+.coach-card button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-elevation-low);
+}
+
+.coach-card button:hover {
+    background-color: oklch(59.39% 0.15 285.58);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-elevation-medium);
+}
+
+@media (max-width: 768px) {
+    #mood-tracker,
+    #mood-history,
+    #find-a-coach {
+        padding: 2rem 1rem;
+    }
+
+    #mood-tracker h2,
+    #mood-history h2,
+    #find-a-coach h2 {
+        font-size: 2rem;
+    }
+
+    .mood-selector {
+        gap: 0.5rem;
+    }
+
+    .mood {
+        min-width: 70px;
+        padding: 0.5rem;
+    }
+
+    .mood::before {
+        width: 30px;
+        height: 30px;
+    }
+}
