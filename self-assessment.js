@@ -1,4 +1,4 @@
-import { auth, db, addDoc, collection, serverTimestamp, onAuthStateChanged } from './firebase-config.js';
+import { db, addDoc, collection, serverTimestamp } from './firebase-config.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const assessmentForm = document.getElementById('self-assessment-form');
@@ -6,22 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultContainer = document.getElementById('assessment-result');
     const resultText = document.getElementById('result-text');
     const logoutLink = document.getElementById('logout-link');
-    let currentUser = null;
-
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            currentUser = user;
-        } else {
-            window.location.href = 'login.html';
-        }
-    });
 
     if (logoutLink) {
         logoutLink.addEventListener('click', (e) => {
             e.preventDefault();
-            auth.signOut().then(() => {
-                window.location.href = 'index.html';
-            });
+            // Since auth is not imported, we cannot sign out here.
+            // The user will be redirected to the index page.
+            window.location.href = 'index.html';
         });
     }
 
@@ -41,17 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         assessmentForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            if (!currentUser) {
-                console.error("User not logged in!");
-                return;
-            }
 
             const answers = Array.from(questions).map(q => parseInt(q.value));
             const scores = calculateScores(answers);
 
             try {
                 await addDoc(collection(db, 'assessments'), {
-                    uid: currentUser.uid,
                     scores: scores,
                     timestamp: serverTimestamp()
                 });
