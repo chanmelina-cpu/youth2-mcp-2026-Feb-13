@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - YouthOk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">YouthOk</div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="messages.html">Messages</a></li>
+                    <li id="logout-nav"><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="dashboard-welcome">
+            <div class="container">
+                <h1>Welcome to your Dashboard</h1>
+                <p>Here you can track your mood, connect with coaches, and manage your wellness journey.</p>
+            </div>
+        </section>
+
+        <section id="mood-tracker">
+            <div class="container">
+                <h2>How are you feeling today?</h2>
+                <div class="mood-selector">
+                    <div class="mood" data-mood="Happy">
+                        <span class="mood-label">Happy</span>
+                    </div>
+                    <div class="mood" data-mood="Sad">
+                        <span class="mood-label">Sad</span>
+                    </div>
+                    <div class="mood" data-mood="Anxious">
+                        <span class="mood-label">Anxious</span>
+                    </div>
+                    <div class="mood" data-mood="Excited">
+                        <span class="mood-label">Excited</span>
+                    </div>
+                    <div class="mood" data-mood="Calm">
+                        <span class="mood-label">Calm</span>
+                    </div>
+                    <div class="mood" data-mood="Angry">
+                        <span class="mood-label">Angry</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="self-assessment-promo">
+            <div class="container">
+                <h2>Take a Self-Assessment</h2>
+                <p>Check in with yourself and gain insights into your well-being.</p>
+                <a href="self-assessment.html" class="btn">Take Assessment</a>
+            </div>
+        </section>
+
+        <section id="mood-history">
+            <div class="container">
+                <h2>Your Mood History</h2>
+                <div class="chart-container">
+                    <canvas id="mood-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="find-a-coach">
+            <div class="container">
+                <h2>Find a Coach</h2>
+                <div class="coach-list">
+                    <div class="coach-card">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Emily Carter">
+                        <h3>Emily Carter</h3>
+                        <p>Specializes in mindfulness and stress reduction.</p>
+                        <button class="connect-btn">Connect</button>
+                    </div>
+                    <div class="coach-card">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="David Chen">
+                        <h3>David Chen</h3>
+                        <p>Specializes in stress and anxiety management.</p>
+                        <button class="connect-btn">Connect</button>
+                    </div>
+                    <div class="coach-card">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Maria Rodriguez">
+                        <h3>Maria Rodriguez</h3>
+                        <p>Focuses on building self-esteem and confidence.</p>
+                        <button class="connect-btn">Connect</button>
+                    </div>
+                    <div class="coach-card">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Ben Thompson">
+                        <h3>Ben Thompson</h3>
+                        <p>Helps with motivation and goal setting.</p>
+                        <button class="connect-btn">Connect</button>
+                    </div>
+                    <div class="coach-card">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Olivia Lee">
+                        <h3>Olivia Lee</h3>
+                        <p>Specializes in relationship and communication issues.</p>
+                        <button class="connect-btn">Connect</button>
+                    </div>
+                    <div class="coach-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Michael Clark">
+                        <h3>Michael Clark</h3>
+                        <p>Experienced in career and life transitions.</p>
+                        <button class="connect-btn">Connect</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 YouthOk. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="httpshttps://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

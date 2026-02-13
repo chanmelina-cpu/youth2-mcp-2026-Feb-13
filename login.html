@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - YouthOk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo">YouthOk</div>
+                <h2>Welcome Back</h2>
+                <p>Log in to continue your wellness journey</p>
+            </div>
+            <form class="auth-form">
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" id="email" placeholder="Email" required>
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" placeholder="Password" required>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <button type="submit" id="login-button" class="auth-button">Log In</button>
+            </form>
+            <div class="auth-divider">
+                <span>OR</span>
+            </div>
+            <div class="social-auth">
+                <button id="google-signin-button" class="social-button google-button">
+                    <i class="fab fa-google" aria-hidden="true"></i>
+                    <span>Continue with Google</span>
+                </button>
+            </div>
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

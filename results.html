@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Results - YouthOK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://apis.google.com/js/api.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">YouthOK</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Assessment Results</h1>
+            <div id="results-container"></div>
+            
+            <div id="assigned-coach-container">
+                <h3>Assigned Coach:</h3>
+                <p id="assigned-coach"></p>
+            </div>
+
+            <div id="calendar-container">
+                <button id="signin-button" class="button">Sign in with Google to book an appointment</button>
+                <div id="calendar-slots-container" style="display: none;">
+                    <h3>Available Time Slots:</h3>
+                    <div id="time-slots"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="results.js"></script>
+</body>
+</html>

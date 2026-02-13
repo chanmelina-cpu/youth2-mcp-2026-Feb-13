@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouthOK - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo">YouthOK</div>
+                <h2>Create Your Account</h2>
+                <p>Join our community and start your wellness journey</p>
+            </div>
+            <form id="signup-form" class="auth-form">
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" id="name" placeholder="Name" required>
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" id="email" placeholder="Email" required>
+                <label for="phone" class="sr-only">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+                <label for="dob" class="sr-only">Date of Birth</label>
+                <input type="date" id="dob" placeholder="Date of Birth" required>
+                <label for="gender" class="sr-only">Gender</label>
+                <select id="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <button type="submit" class="auth-button">Sign Up</button>
+            </form>
+            <p id="error-message" class="error-message"></p>
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Log In</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="signup.js"></script>
+</body>
+</html>

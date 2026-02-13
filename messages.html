@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - YouthOk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="messages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">YouthOk</div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="messages.html">Messages</a></li>
+                    <li id="logout-nav"><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="messages-section">
+            <div class="container messages-container">
+                <div class="conversations-list">
+                    <div class="conversation-item active">
+                        <img src="img/daniel-wong.jpg" alt="Coach Avatar" class="avatar">
+                        <div class="conversation-details">
+                            <p class="coach-name">Daniel Wong</p>
+                            <p class="last-message">You: That sounds great! I'll...</p>
+                        </div>
+                    </div>
+                    <div class="conversation-item">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Coach Avatar" class="avatar">
+                        <div class="conversation-details">
+                            <p class="coach-name">Coach Mike</p>
+                            <p class="last-message">Coach Mike: Let's talk about...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-area">
+                    <div class="chat-header">
+                        <img src="img/daniel-wong.jpg" alt="Coach Avatar" class="avatar">
+                        <h3>Conversation with Daniel Wong</h3>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message received">
+                            <p>Hi there! How are you feeling today?</p>
+                        </div>
+                        <div class="message sent">
+                            <p>I'm doing pretty well, thanks for asking!</p>
+                        </div>
+                        <div class="message received">
+                            <p>That's great to hear. Remember to take some time for yourself today.</p>
+                        </div>
+                        <div class="message sent">
+                            <p>That sounds great! I'll make sure to do that.</p>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="message-input" placeholder="Type your message...">
+                        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 YouthOk. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="messages.js"></script>
+</body>
+</html>

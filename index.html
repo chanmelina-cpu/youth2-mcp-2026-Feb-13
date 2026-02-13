@@ -1,13 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>myapp</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouthOK - Your Mental Wellness Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">YouthOK</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="coaches.html">Coaches</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Your Mental Wellness Companion</h1>
+                <p>A safe space to understand your feelings and connect with a supportive community.</p>
+                
+                <div id="mood-tracker">
+                    <h2>How are you feeling today?</h2>
+                    <div class="mood-selector" role="radiogroup" aria-labelledby="mood-tracker-heading">
+                        <div class="mood" role="radio" aria-checked="false" data-mood="happy" aria-label="Happy"></div>
+                        <div class="mood" role="radio" aria-checked="false" data-mood="calm" aria-label="Calm"></div>
+                        <div class="mood" role="radio" aria-checked="false" data-mood="sad" aria-label="Sad"></div>
+                        <div class="mood" role="radio" aria-checked="false" data-mood="anxious" aria-label="Anxious"></div>
+                        <div class="mood" role="radio" aria-checked="false" data-mood="stressed" aria-label="Stressed"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About YouthOK</h2>
+                <p>We are dedicated to providing young people with the resources they need to thrive. Our platform offers a range of tools and a supportive community to help you on your mental wellness journey.</p>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <a href="self-assessment.html" class="service-link">
+                            <h3>Self-Assessment</h3>
+                            <p>Take our self-assessment to gain insights into your mental wellbeing.</p>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <h3>Community Support</h3>
+                        <p>Connect with peers and mentors in our safe and supportive community.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Expert Coaches</h3>
+                        <p>Connect with a variety of certified coaches, including wellness, career, and academic coaches, for personalized guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2>What Our Users Say</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <p>"YouthOK has been a game-changer for me. I feel less alone and more understood."</p>
+                        <h4>- Alex, 19</h4>
+                    </div>
+                    <div class="card">
+                        <p>"The self-assessment tool helped me realize I needed to talk to someone. I'm so grateful for this platform."</p>
+                        <h4>- Sarah, 21</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 YouthOK. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
 </html>
