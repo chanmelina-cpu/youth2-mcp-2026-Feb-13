@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutLink) {
         logoutLink.addEventListener('click', (e) => {
             e.preventDefault();
-            // Since auth is not imported, we cannot sign out here.
-            // The user will be redirected to the index page.
             window.location.href = 'index.html';
         });
     }
@@ -35,13 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const answers = Array.from(questions).map(q => parseInt(q.value));
             const scores = calculateScores(answers);
+            const coach = getCoach(scores);
 
             try {
                 await addDoc(collection(db, 'assessments'), {
                     scores: scores,
+                    coach: coach,
                     timestamp: serverTimestamp()
                 });
-                displayResults(scores);
+                displayResults(scores, coach);
             } catch (error) {
                 console.error("Error saving assessment: ", error);
                 alert("There was an error saving your results. Please try again.");
@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function calculateScores(answers) {
-        // Based on DASS-21 scoring
         const questionMapping = {
             depression: [2, 4, 9, 12, 15, 16, 20],
             anxiety: [1, 3, 6, 8, 14, 18, 19],
@@ -63,12 +62,29 @@ document.addEventListener('DOMContentLoaded', () => {
             questionMapping[category].forEach(questionIndex => {
                 scores[category] += answers[questionIndex];
             });
-            scores[category] *= 2; // DASS-21 scores are doubled
+            scores[category] *= 2;
         }
         return scores;
     }
 
-    function displayResults(scores) {
+    function getCoach(scores) {
+        const severity = getSeverity(Math.max(scores.depression, scores.anxiety, scores.stress), 'stress'); 
+        switch (severity) {
+            case 'Normal':
+            case 'Moderate':
+                return 'Daniel Wong';
+            case 'Mild':
+                return 'Mei Chen';
+            case 'Severe':
+                return 'Priya Tan';
+            case 'Extremely Severe':
+                return 'Jason Lim';
+            default:
+                return 'N/A';
+        }
+    }
+
+    function displayResults(scores, coach) {
         assessmentForm.style.display = 'none';
         resultContainer.style.display = 'block';
 
@@ -78,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultHTML += `<li><strong>Anxiety:</strong> ${getSeverity(scores.anxiety, 'anxiety')} (${scores.anxiety})</li>`;
         resultHTML += `<li><strong>Stress:</strong> ${getSeverity(scores.stress, 'stress')} (${scores.stress})</li>`;
         resultHTML += `</ul>`;
+        resultHTML += `<p>Based on your results, you have been assigned to <strong>${coach}</strong>.</p>`;
         resultHTML += '<p>These results are not a diagnosis. They are a tool to help you understand your emotional state. We recommend discussing these results with one of our coaches.</p>';
         
         resultText.innerHTML = resultHTML;
@@ -89,11 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
             anxiety: { normal: 7, mild: 9, moderate: 14, severe: 19, extremely_severe: Infinity },
             stress: { normal: 14, mild: 18, moderate: 25, severe: 33, extremely_severe: Infinity }
         };
+        
+        const category = thresholds[type] || thresholds['stress'];
 
-        if (score <= thresholds[type].normal) return 'Normal';
-        if (score <= thresholds[type].mild) return 'Mild';
-        if (score <= thresholds[type].moderate) return 'Moderate';
-        if (score <= thresholds[type].severe) return 'Severe';
+        if (score <= category.normal) return 'Normal';
+        if (score <= category.mild) return 'Mild';
+        if (score <= category.moderate) return 'Moderate';
+        if (score <= category.severe) return 'Severe';
         return 'Extremely Severe';
     }
 });
