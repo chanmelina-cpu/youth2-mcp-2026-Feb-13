@@ -20,10 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             console.log('Invite Details:', inviteDetails);
-            alert('Invite details collected: 
-' + JSON.stringify(inviteDetails, null, 2) + '
-
-(Firebase integration to follow)');
+            alert(`Invite details collected: \n${JSON.stringify(inviteDetails, null, 2)}\n\n(Firebase integration to follow)`);
 
             // Placeholder for Firebase or API integration
             // Example: await sendInviteToFirebase(inviteDetails);
