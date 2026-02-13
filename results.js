@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return new Promise((resolve) => {
             gapi.load('client', async () => {
                 gapi.client.init({
-                    apiKey: 'AIzaSyC_u9mKhc_GcKUCmmNj49fPqc5KnIJKZYI',
+                    apiKey: '',
                     clientId: 'YOUR_CLIENT_ID', // TODO: Replace with your actual client ID
                     discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
                 });
