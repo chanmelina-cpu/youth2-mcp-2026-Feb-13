@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBar = document.getElementById('progress-bar');
 
     const questions = [
-        // DASS-21 questions
         { text: "I couldn't seem to experience any positive feeling at all.", scale: 'depression' },
         { text: "I felt that life was meaningless.", scale: 'depression' },
         { text: "I felt down-hearted and blue.", scale: 'depression' },
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { text: "I felt that I was rather touchy.", scale: 'stress' }
     ];
 
-    // Dynamically generate questions
     let questionsHtml = '';
     questions.forEach((question, index) => {
         questionsHtml += `
@@ -65,15 +63,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const getSeverityLevel = (score, scale) => {
+        const thresholds = {
+            depression: [9, 13, 20, 27],
+            anxiety: [7, 9, 14, 19],
+            stress: [14, 18, 25, 33]
+        };
+        const scaleThresholds = thresholds[scale];
+        if (score <= scaleThresholds[0]) return 0; // Normal
+        if (score <= scaleThresholds[1]) return 1; // Mild
+        if (score <= scaleThresholds[2]) return 2; // Moderate
+        if (score <= scaleThresholds[3]) return 3; // Severe
+        return 4; // Extremely Severe
+    };
+
+    const getSeverityString = (level) => {
+        const severityMap = ['Normal', 'Mild', 'Moderate', 'Severe', 'Extremely Severe'];
+        return severityMap[level];
+    };
+
+    const getCoach = (scores) => {
+        const depressionLevel = getSeverityLevel(scores.depression, 'depression');
+        const anxietyLevel = getSeverityLevel(scores.anxiety, 'anxiety');
+        const stressLevel = getSeverityLevel(scores.stress, 'stress');
+
+        const maxLevel = Math.max(depressionLevel, anxietyLevel, stressLevel);
+
+        const coaches = ['Daniel Wong', 'Mei Chen', 'Daniel Wong', 'Priya Tan', 'Jason Lim'];
+        return coaches[maxLevel];
+    };
+
     assessmentForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const scores = {
-            depression: 0,
-            anxiety: 0,
-            stress: 0
-        };
-
+        const scores = { depression: 0, anxiety: 0, stress: 0 };
         questions.forEach((question, index) => {
             const answerInput = document.getElementById(`answer-${index}`);
             const answerValue = parseInt(answerInput.value, 10);
@@ -85,22 +108,31 @@ document.addEventListener('DOMContentLoaded', () => {
         scores.stress *= 2;
 
         localStorage.setItem('dass21_scores', JSON.stringify(scores));
+        
+        const coach = getCoach(scores);
+        localStorage.setItem('recommended_coach', coach);
 
         assessmentForm.style.display = 'none';
         document.querySelector('.progress-container').style.display = 'none';
         document.querySelector('.assessment-description').style.display = 'none';
         document.querySelector('#assessment h2').textContent = 'Your Assessment Results';
+        
+        const depressionLevel = getSeverityLevel(scores.depression, 'depression');
+        const anxietyLevel = getSeverityLevel(scores.anxiety, 'anxiety');
+        const stressLevel = getSeverityLevel(scores.stress, 'stress');
 
         resultsDisplay.innerHTML = `
             <h2>Your Results</h2>
             <p>Thank you for completing the assessment. Here are your scores:</p>
-            <ul>
-                <li><strong>Depression Score:</strong> ${scores.depression}</li>
-                <li><strong>Anxiety Score:</strong> ${scores.anxiety}</li>
-                <li><strong>Stress Score:</strong> ${scores.stress}</li>
-            </ul>
+            <div class="scores-container">
+                <div class="score-item"><strong>Depression:</strong> ${getSeverityString(depressionLevel)} (${scores.depression})</div>
+                <div class="score-item"><strong>Anxiety:</strong> ${getSeverityString(anxietyLevel)} (${scores.anxiety})</div>
+                <div class="score-item"><strong>Stress:</strong> ${getSeverityString(stressLevel)} (${scores.stress})</div>
+            </div>
+            <h3>Recommended Coach</h3>
+            <p>Based on your results, we recommend you connect with <strong>${coach}</strong>.</p>
             <p>These scores are an indication of your wellbeing and not a diagnosis. For a detailed interpretation and to connect with one of our coaches, please see your detailed results.</p>
-            <a href="results.html" class="button">View Detailed Results & Recommended Coach</a>
+            <a href="results.html" class="button">View Detailed Results & Connect with ${coach}</a>
         `;
         resultsDisplay.style.display = 'block';
     });
