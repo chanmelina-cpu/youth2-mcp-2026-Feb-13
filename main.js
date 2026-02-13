@@ -5,15 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileNav = document.querySelector('.mobile-nav');
 
     function toggleNav() {
-        mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        const isExpanded = hamburgerMenu.getAttribute('aria-expanded') === 'true';
+        hamburgerMenu.setAttribute('aria-expanded', !isExpanded);
+        mobileNav.style.display = isExpanded ? 'none' : 'flex';
     }
 
     if (hamburgerMenu && mobileNav) {
         hamburgerMenu.addEventListener('click', toggleNav);
 
-        // Allow closing nav by pressing Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileNav.style.display === 'flex') {
+            if (e.key === 'Escape' && hamburgerMenu.getAttribute('aria-expanded') === 'true') {
                 toggleNav();
             }
         });
@@ -23,8 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const moodSelectors = document.querySelectorAll('.mood-selector .mood');
     moodSelectors.forEach(mood => {
         mood.addEventListener('click', () => {
-            // In a real app, you would save this mood data
-            window.location.href = 'self-assessment.html';
+            const moodValue = mood.dataset.mood;
+            // In a real app, you would save this mood data or use it
+            window.location.href = `self-assessment.html?mood=${moodValue}`;
         });
 
         // Keyboard accessibility
@@ -67,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function addBotMessage(text) {
+        if (!chatLog) return;
         const message = document.createElement('div');
         message.classList.add('chat-bubble', 'bot-message');
         message.textContent = text;

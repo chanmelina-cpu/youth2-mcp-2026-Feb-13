@@ -105,7 +105,6 @@ nav a:hover::after {
     transform-origin: left;
 }
 
-
 main {
     padding-block-start: 70px; /* To account for the fixed header */
 }
@@ -219,7 +218,6 @@ main {
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-
 .card h3 {
     font-size: 1.5rem;
     font-weight: 600;
@@ -247,24 +245,6 @@ footer {
     color: var(--bg-color);
     text-align: center;
     padding-block: 2rem;
-}
-
-/* Assessment Page Styles */
-#self-assessment-form .question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem; /* Add some space between questions */
-}
-
-#self-assessment-form .submit-button {
-    display: block; /* Or 'inline-block' depending on desired layout */
-    margin: 2rem auto 0; /* Center the button and add top margin */
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    width: 200px; /* Adjust as needed */
 }
 
 #assessment .container {
@@ -316,7 +296,6 @@ footer {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
-
 
 .bot-message {
     background-color: #f0f0f0;
@@ -410,7 +389,7 @@ footer {
         padding-inline: 1rem;
     }
     nav ul {
-        display: none; /* simple responsive, could be replaced with a hamburger menu */
+        display: none;
     }
     .hamburger-menu {
         display: block;

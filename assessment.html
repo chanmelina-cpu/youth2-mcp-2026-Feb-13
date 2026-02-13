@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouthOK - Page Not Found</title>
+    <title>YouthOK - Self-Assessment</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,11 +21,19 @@
     </header>
 
     <main>
-        <section id="not-found" class="section">
+        <section id="assessment" class="section">
             <div class="container">
-                <h1>404 - Page Not Found</h1>
-                <p>Oops! The page you're looking for doesn't exist. It might have been moved or deleted.</p>
-                <a href="index.html" class="btn">Go to Homepage</a>
+                <h2>Self-Assessment</h2>
+                <p>Let's check in. Please select the option that best describes how you've felt over the past week.</p>
+                
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+
+                <div id="chat-container" class="card">
+                    <div id="chat-log"></div>
+                    <div id="chat-options"></div>
+                </div>
             </div>
         </section>
     </main>
@@ -35,5 +43,6 @@
             <p>&copy; 2026 YouthOK. All rights reserved.</p>
         </div>
     </footer>
+    <script src="assessment.js"></script>
 </body>
 </html>
