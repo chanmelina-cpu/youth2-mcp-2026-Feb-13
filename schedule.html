@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Invite - YouthOK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="logo">YouthOK</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Schedule an Invite</h1>
+            <form id="invite-scheduling-form">
+                <div class="form-group">
+                    <label for="recipient-email">Recipient's Email:</label>
+                    <input type="email" id="recipient-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="invite-date">Date:</label>
+                    <input type="date" id="invite-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="invite-time">Time:</label>
+                    <input type="time" id="invite-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="invite-topic">Topic/Purpose:</label>
+                    <textarea id="invite-topic" rows="5"></textarea>
+                </div>
+                <button type="submit" class="button">Send Invite</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 YouthOK. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="schedule.js"></script>
+</body>
+</html>
