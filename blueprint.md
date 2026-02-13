@@ -61,6 +61,7 @@ The design is clean, vibrant, and optimistic, aiming to create a welcoming and n
 *   **Mood Tracker (`index.html`)**: An interactive Web Component (`mood-tracker`) allowing users to select their current mood.
 *   **AI Chat Assessment (`index.html`)**: An interactive chat interface for an initial assessment.
 *   **Improved User Feedback**: Authentication forms now provide clear feedback to the user, such as disabled buttons during submission and clear error messages.
+*   **Invite Scheduling**: Users can now schedule invites through a dedicated page (`schedule.html`), accessible from the assessment results page.
 
 ## 4. Current Change Request: Application-wide Refactoring
 
@@ -95,3 +96,17 @@ The user requested a full-stack refactoring of the web application to improve ac
 
 5.  **[Completed]** **Blueprint Update**:
     *   Updated this `blueprint.md` file to document the application's current state, including the new design, features, and the details of this refactoring effort.
+
+## 5. Current Change Request: Invite Scheduling Feature
+
+### **User Request**
+
+Add an option on the `results.html` page to create an invite scheduling.
+
+### **Execution Plan**
+
+1.  **[Completed]** Added a button to `results.html` linking to `schedule.html`.
+2.  **[Completed]** Created `schedule.html` with a form for invite scheduling (recipient email, date, time, topic).
+3.  **[Completed]** Created `schedule.js` to handle form submission and data collection (placeholder for Firebase integration).
+4.  **[Completed]** Ensured `schedule.html` and `schedule.js` are correctly linked.
+5.  **[Completed]** Updated `blueprint.md` (this step).
