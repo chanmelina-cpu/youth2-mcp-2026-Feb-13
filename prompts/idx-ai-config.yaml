@@ -1,9 +1,0 @@
-completion:
-  stop-sequences: []
-  expected-samples: 1
-
-conversation:
-
-generation:
-  expected-samples: 1
-  disable_prompt_formatting: true
