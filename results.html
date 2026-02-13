@@ -6,6 +6,7 @@
     <title>Assessment Results - YouthOK</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="results.css">
     <script src="https://apis.google.com/js/api.js"></script>
 </head>
 <body>
@@ -26,10 +27,7 @@
             <h1>Assessment Results</h1>
             <div id="results-container"></div>
             
-            <div id="assigned-coach-container">
-                <h3>Assigned Coach:</h3>
-                <p id="assigned-coach"></p>
-            </div>
+            <div id="recommended-coach"></div>
 
             <div id="calendar-container">
                 <button id="signin-button" class="button">Sign in with Google to book an appointment</button>
@@ -45,6 +43,7 @@
         </div>
     </main>
 
+    <script src="coaches.js"></script>
     <script src="results.js"></script>
 </body>
 </html>
